@@ -20,7 +20,7 @@ public class CarsController {
 
     @GetMapping()
     public String carsPage(@RequestParam(value = "count", required = false) Integer count, Model model) {
-        if ((count == null) || (count < 0) || (count > 5)) {
+        if ((count == null) || (count < 0) || (count >= 5)) {
             model.addAttribute("cars", carService.getAllCars());
         } else {
             model.addAttribute("cars", carService.getCars(count));
